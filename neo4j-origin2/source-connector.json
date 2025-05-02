@@ -1,0 +1,14 @@
+{
+  "name": "Neo4jSourceConnector2",
+  "config": {
+    "connector.class": "streams.source",
+    "neo4j.server.uri": "bolt://neo4j_origin2:7687",
+    "neo4j.server.user": "neo4j",
+    "neo4j.server.password": "password",
+    "neo4j.topic.mapping": "technicalevents=TechnicalEvent, observations=Observation",
+    "topics": "technicalevents,observations",
+    "neo4j.streaming.enabled": "true",
+    "neo4j.streaming.poll.interval.ms": "1000"
+  }
+}
+
