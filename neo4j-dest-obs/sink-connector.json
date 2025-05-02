@@ -1,0 +1,13 @@
+{
+  "name": "Neo4jSinkConnectorObs",
+  "config": {
+    "connector.class": "org.neo4j.connectors.kafka.sink.Neo4jConnector",
+    "topics": "observations",
+    "neo4j.uri": "neo4j://neo4j_dest_obs:7687",
+    "neo4j.authentication.basic.username": "neo4j",
+    "neo4j.authentication.basic.password": "password",
+    "neo4j.database": "neo4j",
+    "neo4j.cypher.topic.observations": "WITH __value AS event WHERE event.temperature > 37 MERGE (p:Patient {id: event.patientId}) SET p.name = event.patientName, p.age = event.age, p.gender = event.gender MERGE (o:Observation {id: event.id}) SET o.temperature = event.temperature, o.timestamp = event.timestamp MERGE (p)-[:HAS]->(o)"
+  }
+}
+
