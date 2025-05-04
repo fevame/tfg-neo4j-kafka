@@ -1,6 +1,6 @@
 # 📄 Guía de Instalación y Despliegue del Proyecto
 
-Esta guía explica cómo desplegar y probar el entorno Docker que integra Neo4j y Kafka. Está pensada para ser fácilmente reutilizable para futuros proyectos.
+Esta guía explica cómo desplegar y probar el entorno Docker que integra Neo4j y Kafka.
 
 ---
 
