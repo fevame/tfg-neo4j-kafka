@@ -1,13 +1,19 @@
 {
-  "name": "Neo4jSinkConnectorTech",
+  "name": "Neo4jSinkConnectorTechnicalEvents",
   "config": {
     "connector.class": "org.neo4j.connectors.kafka.sink.Neo4jConnector",
     "topics": "technicalevents",
-    "neo4j.uri": "neo4j://neo4j_dest_tech:7687",
+    "key.converter": "io.confluent.connect.json.JsonSchemaConverter",
+    "key.converter.schemas.enable": true,
+    "key.converter.schema.registry.url": "http://schema-reg:8081",
+    "value.converter": "io.confluent.connect.json.JsonSchemaConverter",
+    "value.converter.schemas.enable": true,
+    "value.converter.schema.registry.url": "http://schema-reg:8081",
+    "neo4j.uri": "bolt://neo4j-dest-tech:7687",
+    "neo4j.authentication.type": "BASIC",
     "neo4j.authentication.basic.username": "neo4j",
     "neo4j.authentication.basic.password": "password",
     "neo4j.database": "neo4j",
-    "neo4j.cypher.topic.technicalevents": "MERGE (d:Device {id: __value.deviceId}) MERGE (t:TechnicalEvent {id: __value.id}) SET t.eventName = __value.eventName, t.eventStatus = __value.eventStatus, t.timestamp = __value.timestamp MERGE (d)-[:GENERATES]->(t)"
+    "neo4j.cypher.topic.technicalevents": "WITH __value AS e MERGE (d:Device {id: e.deviceId}) MERGE (t:TechnicalEvent {id: e.eventId}) SET t.timestamp = e.timestamp, t.eventName = e.eventName, t.eventStatus = e.eventStatus MERGE (d)-[:GENERATES]->(t)"
   }
 }
-

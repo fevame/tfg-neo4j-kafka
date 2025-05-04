@@ -1,14 +1,23 @@
 {
-  "name": "Neo4jSourceConnector2",
+  "name": "Neo4jSourceConnectorOrigin2",
   "config": {
-    "connector.class": "streams.source",
-    "neo4j.server.uri": "bolt://neo4j_origin2:7687",
-    "neo4j.server.user": "neo4j",
-    "neo4j.server.password": "password",
-    "neo4j.topic.mapping": "technicalevents=TechnicalEvent, observations=Observation",
-    "topics": "technicalevents,observations",
-    "neo4j.streaming.enabled": "true",
-    "neo4j.streaming.poll.interval.ms": "1000"
+    "connector.class": "org.neo4j.connectors.kafka.source.Neo4jConnector",
+    "key.converter": "io.confluent.connect.json.JsonSchemaConverter",
+    "key.converter.schemas.enable": true,
+    "key.converter.schema.registry.url": "http://schema-reg:8081",
+    "value.converter": "io.confluent.connect.json.JsonSchemaConverter",
+    "value.converter.schemas.enable": true,
+    "value.converter.schema.registry.url": "http://schema-reg:8081",
+    "neo4j.uri": "neo4j://neo4j-origin2:7687",
+    "neo4j.authentication.type": "BASIC",
+    "neo4j.authentication.basic.username": "neo4j",
+    "neo4j.authentication.basic.password": "password",
+    "neo4j.source-strategy": "QUERY",
+    "neo4j.start-from": "NOW",
+    "neo4j.query": "MATCH (p:Patient)-[:HAS_OBSERVATION]->(o:Observation) WHERE o.timestamp.epochMillis > $lastCheck RETURN o.id AS observationId, o.temperature AS temperature, p.id AS patientId, o.timestamp.epochMillis AS timestamp",
+    "neo4j.query.streaming-property": "timestamp",
+    "neo4j.query.topic": "observations",
+    "neo4j.query.polling-interval": "1s",
+    "neo4j.query.polling-duration": "5s"
   }
 }
-
