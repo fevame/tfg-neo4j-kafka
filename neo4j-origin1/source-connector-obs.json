@@ -1,5 +1,5 @@
 {
-    "name": "Neo4jSourceConnectorOrigin1_Observations∫",
+    "name": "Neo4jSourceConnectorOrigin1_Observations",
     "config": {
       "connector.class": "org.neo4j.connectors.kafka.source.Neo4jConnector",
       "key.converter": "io.confluent.connect.json.JsonSchemaConverter",

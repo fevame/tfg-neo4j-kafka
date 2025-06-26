@@ -6,8 +6,8 @@ Esta guía explica cómo desplegar y probar el entorno Docker que integra Neo4j 
 
 ## ✅ Requisitos previos
 
-- Docker instalado  
-- Git instalado  
+- Docker instalado  --> https://www.docker.com/products/docker-desktop/
+- Git instalado  --> https://git-scm.com/downloads
 - Conexión a internet
 
 ---
@@ -80,4 +80,10 @@ Esta guía explica cómo desplegar y probar el entorno Docker que integra Neo4j 
   Esto borrará también los volúmenes y los datos guardados.
 
 - Si actualizas los `.cypher` o los conectores, vuelve a ejecutar los scripts correspondientes dejando la linea de eliminación para evitar errores.
+- En caso de perder algún tipo de conexión, por ejemplo perder acceso a neo4j o al control center de Kafka, probar primero volver a ejecutar:
 
+  ```bash
+  docker-compose up -d
+  ```
+
+  
