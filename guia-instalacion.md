@@ -55,16 +55,20 @@ Esta guía explica cómo desplegar y probar el entorno Docker que integra Neo4j 
 ├── neo4j-origin1
 │   ├── cypher-init
 │   │   └── origin1.cypher
-│   └── source-connector.json
+│   ├── source-connector-obs.json
+│   └── source-connector-tech.json
 ├── neo4j-origin2
 │   ├── cypher-init
 │   │   └── origin2.cypher
-│   └── source-connector.json
+│   ├── source-connector-obs.json
+│   └── source-connector-tech.json
 ├── plugins
 │   └── neo4j-kafka-connect-5.1.7.jar
 └── scripts
     ├── load_kafka_connectors.sh
-    └── load_neo4j_data.sh
+    ├── load_neo4j_data.sh
+    └── simple_insert_patient_device.sh
+    
 ```
 
 ---
@@ -86,4 +90,3 @@ Esta guía explica cómo desplegar y probar el entorno Docker que integra Neo4j 
   docker-compose up -d
   ```
 
-  

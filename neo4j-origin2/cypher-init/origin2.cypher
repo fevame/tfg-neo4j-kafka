@@ -2,7 +2,7 @@
 MATCH (n) DETACH DELETE n;
 
 // Crear pacientes
-MERGE (p4:Patient {id: '49282750Y', name: 'Juan Pérez'})
+MERGE (p4:Patient {id: '49547630T', name: 'Juan Pérez'})
 MERGE (p5:Patient {id: '44247414A', name: 'María Gómez'})
 MERGE (p6:Patient {id: '44442222F', name: 'Luis García'})
 
