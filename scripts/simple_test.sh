@@ -26,7 +26,7 @@ read -p "Número de serie: " serial
 read -p "Estado del dispositivo (active/inactive): " status
 
 read -p "ID de la observación: " oid
-read -p "Temperatura: " temp
+read -p "Valor medido: " value
 TIMESTAMP=$(date -Iseconds)
 
 echo "🚀 Insertando datos en $CONTAINER..."
@@ -37,7 +37,7 @@ docker exec -i $CONTAINER cypher-shell -u $USER -p $PASS \
  MERGE (p:Patient {id: '$pid', name: '$pname', age: $age, gender: '$gender'})
  MERGE (d:Device {id: '$did', type: '$dtype', manufacturer: '$manufacturer', serialNumber: '$serial', status: '$status'})
  MERGE (d)-[:ASSIGNED_TO]->(p)
- MERGE (o:Observation {id: '$oid', temperature: $temp, timestamp: datetime()})
+ MERGE (o:Observation {id: '$oid', measuredValue: $value, timestamp: datetime()})
  MERGE (p)-[:HAS]->(o)
  MERGE (d)-[:TAKES]->(o)"
 

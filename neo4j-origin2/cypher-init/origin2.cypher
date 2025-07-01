@@ -17,12 +17,12 @@ MERGE (d4)-[:ASSIGNED_TO]->(p5)
 MERGE (d5)-[:ASSIGNED_TO]->(p6)
 
 // Crear observaciones
-MERGE (o7:Observation {id: 'o7', temperature: 37.9, timestamp: datetime()})
-MERGE (o8:Observation {id: 'o8', temperature: 38.2, timestamp: datetime()})
-MERGE (o9:Observation {id: 'o9', temperature: 36.5, timestamp: datetime()})
-MERGE (o10:Observation {id: 'o10', temperature: 39.5, timestamp: datetime()})
-MERGE (o11:Observation {id: 'o11', temperature: 36.7, timestamp: datetime()})
-MERGE (o12:Observation {id: 'o12', temperature: 38.9, timestamp: datetime()})
+MERGE (o7:Observation {id: 'o7', measuredValue: 37.9, timestamp: datetime()})
+MERGE (o8:Observation {id: 'o8', measuredValue: 38.2, timestamp: datetime()})
+MERGE (o9:Observation {id: 'o9', measuredValue: 36.5, timestamp: datetime()})
+MERGE (o10:Observation {id: 'o10', measuredValue: 39.5, timestamp: datetime()})
+MERGE (o11:Observation {id: 'o11', measuredValue: 36.7, timestamp: datetime()})
+MERGE (o12:Observation {id: 'o12', measuredValue: 38.9, timestamp: datetime()})
 
 // Relacionar observaciones con pacientes y dispositivos
 MERGE (p4)-[:HAS]->(o7)

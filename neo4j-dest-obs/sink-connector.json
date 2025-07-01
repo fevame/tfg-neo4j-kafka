@@ -14,6 +14,6 @@
     "neo4j.authentication.basic.username": "neo4j",
     "neo4j.authentication.basic.password": "password",
     "neo4j.database": "neo4j",
-    "neo4j.cypher.topic.observations": "WITH __value AS e WHERE e.temperature > 37 MERGE (p:Patient {id: e.patientId}) MERGE (o:Observation {id: e.observationId}) SET o.timestamp = e.timestamp, o.temperature = e.temperature MERGE (p)-[:HAS]->(o)"
+    "neo4j.cypher.topic.observations": "WITH __value AS e WHERE e.measuredValue > 37 MERGE (p:Patient {id: e.patientId}) MERGE (o:Observation {id: e.observationId}) SET o.timestamp = e.timestamp, o.measuredValue = e.measuredValue MERGE (p)-[:HAS]->(o)"
   }
 }

@@ -14,7 +14,7 @@
     "neo4j.authentication.basic.password": "password",
     "neo4j.source-strategy": "QUERY",
     "neo4j.start-from": "NOW",
-    "neo4j.query": "MATCH (p:Patient)-[:HAS]->(o:Observation) WHERE o.timestamp.epochMillis > $lastCheck RETURN o.id AS observationId, o.temperature AS temperature, p.id AS patientId, o.timestamp.epochMillis AS timestamp",
+    "neo4j.query": "MATCH (p:Patient)-[:HAS]->(o:Observation) WHERE o.timestamp.epochMillis > $lastCheck RETURN o.id AS observationId, o.measuredValue AS measuredValue, p.id AS patientId, o.timestamp.epochMillis AS timestamp",
     "neo4j.query.streaming-property": "timestamp",
     "neo4j.query.topic": "observations",
     "neo4j.query.polling-interval": "1s",
