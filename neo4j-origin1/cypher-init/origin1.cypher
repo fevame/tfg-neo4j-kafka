@@ -1,10 +1,10 @@
 // Eliminar todos los nodos y relaciones existentes
 MATCH (n) DETACH DELETE n;
 
-// Crear pacientes
-MERGE (p1:Patient {id: '12345678A', name: 'Juan Pérez'})
-MERGE (p2:Patient {id: '23456789B', name: 'María Gómez'})
-MERGE (p3:Patient {id: '34567890C', name: 'Luis García'})
+// Crear pacientes con edad y género
+MERGE (p1:Patient {id: '12345678A', name: 'Juan Pérez', age: 64, gender: 'male'})
+MERGE (p2:Patient {id: '23456789B', name: 'María Gómez', age: 58, gender: 'female'})
+MERGE (p3:Patient {id: '34567890C', name: 'Luis García', age: 72, gender: 'male'})
 
 // Crear dispositivos
 MERGE (d1:Device {id: 'd1', type: 'Thermometer', manufacturer: 'MedTech', serialNumber: 'SN1234', status: 'active'})
